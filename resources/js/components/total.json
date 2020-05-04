@@ -1,0 +1,84 @@
+{
+    "data_skills": [
+        {
+            "id": 1,
+            "title": "Php",
+            "about": "I'm keeping to enhance my own PHP framework with Model-View-Control modulation. \n <br /> You also can get acquainted with him and fork in the follow GitHub repository. \n <br/ >For instance, this framework entirely is building in the Dependency Injection and you may use it however you want. \n <br /> In the further, I'm looking to write own artisan for migrations/seeds creating, cause it's being one is the most easy and rapid way to implement it.\n </br> From the Front Side, I want to integrate it with Vue.js and Webpack compiler for Vue.js; I would like to notice a several things, which are emphasizing this project at the whole: \n <br/ > <div class='ui list'> <a class='item' href='javascript:;'> It's being an entirely free, and you can just clone it. </a> \n <a class='item' href='javascript:;'> All of your project is not restricted by anything, you can implement and enhance him in the future , accordingly to your requirements or something like that. \n </a> <a class='item' href='javascript:;'> This project is building onto PDO connection, with Singleton pattern, so, at the whole, it will eliminate any ways to connect to Database a plenty times. \n </a> <a class='item' href='javascript:;'> You also can register and develop your API or use this framework as RestApi for your project purposes, you're just demanding to put your routes in the essential folder, and keep to create some outstanding! \n</a> <a link='javascript:;' class='item'>This framework is powered by ActiveRecord for database connection, definitely. \n </a> </div> <br/>You can just check out my repository allow to get more acquainted with it I'm also having another repositories, which are related with PHP, like API connection and so on. \n <br />I'm actively working with PHP now, and looking for objective programming, trying to adhere to the SOLID principles. \n <br /> Also I had an experience in the parsing with PHP. <br /> <a href='https://github.com/Emik123dsa/BroomMVC' rel='_target' > <i class='github icon'> </i> Follow me!</a>",
+            "desc": "I'm actively engaging in the PHP, also have an experience with Model-View-Controller modulation, PDO Connection, and more oriented on the Objective programming, interacted with standard patterns as 'Singleton', 'Many to Many'",
+            "name": "php",
+            "color": "blue"
+        },
+        {
+            "id": 2,
+            "title": "JavaScript",
+            "about": "JS about",
+            "desc": "I prefer to programming on native JavaScript for finding any solutions",
+            "name": "js",
+            "color": "yellow"
+        },
+        {
+            "id": 3,
+            "title": "Laravel",
+            "about": "I'm currently using a Laravel for my essential projects deploying, at the first time, Laravel is being sufficient boon framework for small and immense projects, like for instance, I can quickly use it with Laravel Mix, simultaneously, Webpack plugins/ Vue.js / React and so on. <br />Also Laravel can give you an opportunity to use integrated artisan commander. <br /> You can create your own MVC model in a several steps and functionally use it in the further. <br /> You also can check out my github repository with standard CRUD operations. <br/ > By the way, this project is powered by Laravel! <div class='ui list'> <div class='item'> <i class='large github middle aligned icon'></i> <div class='content'><a class='header' href='https://github.com/Emik123dsa/TodoVue' rel='_target'> My TodoVue project </a></div></div></div>",
+            "desc": "Laravel is being sufficient wonderful framework for rapid projects building, essentially, working with php artisan is increasing your velocity potential. Like you can just create any migrations, model, view, collection, seed and so on",
+            "name": "laravel",
+            "color": "red"
+        },
+        {
+            "id": 4,
+            "title": "Docker",
+            "about": "I'm usually using Docker for my little projects, you can create your working server just in a several steps: install Nginx, Php-fpm or Node-js, as database you may use MySql, PostgreSql and etc. For instance, this code essential determine all of the required services for your server working: <br /> <div class='ui segment placeholder'><div class='ui list'> <div class='item'><i class='folder blue icon'></i><div class='content'><div class='header'>docker</div><div class='description'>Docker Fpm and Nginx building settings</div><div class='list'><div class='item'><i class='docker blue icon'></i><div class='content'><div class='header'>Nginx.Dockerfile</div><div class='description'>Nginx</div></div></div><div class='item'><i class='docker blue icon'></i><div class='content'><div class='header'>Fpm.Dockerfile</div><div class='description'>PHP-FPM</div></div> </div><div class='item'> <i class='folder blue icon'> </i> <div class='content'> <div class='header'>conf</div>  <div class='description'> <div class='list'> <div class='item'> <i class='settings icon'> </i> <div class='content'> <div class='header'> vhost.conf </div> <div class='description'> Settings default Nginx</div> </div> </div></div> </div> </div></div></div></div></div><div class='item'><i class='docker red icon'></i> <div class='content'> <div class='header'>docker-compose.yml</div> <div class='description'>Determine all of the required plugins</div></div> </div></div> </div>",
+            "desc": "I also prefer to deploy my projects via Docker compilation, cause it's making total process of installation indeed quickly and high productive, without any struggles",
+            "name": "docker",
+            "color": "blue"
+        }, 
+        {
+            "id": 5,
+            "title": "Node-js",
+            "about": "Currently, I'm also looking for Node-js Back-End development. From one side, is giving also a plenty of opportunities to create something outstanding. I would like to say that you can build your project essentially with Express web-server, involve Mongoose as MongoDB server database, instead of standard MySql, PostgreSql. <br /> I'm trying to enhance myself in these realms and having large desire to get started own projects with JS Back-End Server-Side-Rendering.",
+            "desc": "I'm actively studying a Node.js, Express, MongoDb as Back End projects building",
+            "name": "node-js",
+            "color": "olive"
+        },
+        {
+            "id": 6,
+            "title": "Database",
+            "about": "Database about",
+            "desc": "I'm acquainted with MySql stadard functions, migrations",
+            "name": "database",
+            "color": "pink"
+        },
+        {
+            "id": 7,
+            "title": "Vue-js",
+            "about": "Vue-js about",
+            "desc": "I'm actively studying Vuex (actions, mutations, store, getters), Nuxt.js as Server Side Rendering, Vue-Cli, Vue, VueAxios, VueRouters and a lot of plugins for deploying",
+            "name": "vue-js",
+            "color": "green"
+        },
+        {
+            "id": 8,
+            "title": "Webpack",
+            "about": "Webpack about",
+            "desc": "I'm also actively using Webpack for any projects building, for instance, you can indeed easy compile any required files to one JS with Babel helping, you might check it out beneath: ",
+            "name": "webpack",
+            "color": "blue"
+        },
+        {
+            "id": 9,
+            "title": "CSS3",
+            "about": "CSS3 about",
+            "desc": "Obviously, it's being the most important skill for Front for Front-End development",
+            "name": "css3",
+            "color": "blue"
+        },
+        {
+            "id": 10,
+            "title": "HTML5",
+            "about": "HTML5 about",
+            "desc": "I'm acquainted with HTML5, I have been starting my Web Development way from it",
+            "name": "html5",
+            "color": "red"
+        }
+    ]
+}
