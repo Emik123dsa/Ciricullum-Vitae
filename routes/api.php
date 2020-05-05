@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/skills', ['uses' => 'SkillController@index', 'as' => 'index_skill']);
 Route::get('/skill-cards', ['uses' => 'SkillCardsController@index', 'as' => 'index_skill_cards']);
+

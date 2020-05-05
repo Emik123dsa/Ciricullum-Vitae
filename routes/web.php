@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::any("/{any}", ['uses' => 'IndexController@index', 'as' => 'index'])->where("any", ".*");
-
+//Route::get('/entity', ['uses' => 'IndexController@get', 'as' => 'entity']);
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

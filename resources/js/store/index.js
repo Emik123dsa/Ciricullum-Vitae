@@ -1,4 +1,4 @@
-window.Vue = require('vue');
+import Vue from 'vue';
 
 import Vuex from 'vuex';
 import features from './modules/features';

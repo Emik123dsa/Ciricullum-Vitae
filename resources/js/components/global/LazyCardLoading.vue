@@ -1,5 +1,5 @@
 <template>
-  <div class="ui three doubling stackable cards">
+  <sui-card-group :items-per-row="3" class="link">
     <div class="ui card">
       <div class="image">
         <div class="ui placeholder">
@@ -54,7 +54,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </sui-card-group>
 </template>
 
 <script>
