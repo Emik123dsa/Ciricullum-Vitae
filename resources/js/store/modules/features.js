@@ -1,12 +1,14 @@
 export default {
-    state: {
+    state: ()=> ({
+        apiBaseUrl: "/api/",
         allSkills: "",
-        apiBaseUrl: "http://www.mocky.io/v2/",
-        skillCards: ""
-    },
+        skillCards: "",
+        aboutFeatures: ""
+    }),
     getters: {
         skills: (s) => s.allSkills,
-        skillCards: (s) => s.skillCards
+        skillCards: (s) => s.skillCards,
+        aboutFeatures: (s) => s.aboutFeatures
     },
     mutations: {
         setSkills(state, context) {
@@ -20,6 +22,13 @@ export default {
         },
         clearSkillCards(state) {
             state.skillCards = [];
+        },
+        setAboutFeatures(state, value) 
+        {
+            state.aboutFeatures = value;
+        },
+        clearAboutFeatures(state) {
+            state.aboutFeatures = [];
         }
     },
     actions: {
@@ -42,25 +51,27 @@ export default {
                     .then((response) => res(response))
                     .catch((error) => rej(error))
             });
-    },
-    async loadSkills({ dispatch, commit }) {
-
-        const response = await dispatch("apiRequest", {
-            url: "5eadd6982f00004b00198895",
-            params: {
-                "mocky-delay": "300ms"
+        },
+        async loadSkills({ dispatch, commit }) {
+            const response = await dispatch("apiRequest", {
+                url: "skills",
             }
-        }
-        );
-        commit("setSkills", response);
-    },
-    async loadSkillCards({dispatch, commit}) {
-        const response = await dispatch("apiRequest", {
-            baseURL: "/api", 
-            url: "/skill-cards"
-        });
+            );
+            commit("setSkills", response);
+        },
+        async loadSkillCards({ dispatch, commit }) {
+            const response = await dispatch("apiRequest", {
+                url: "skill-cards"
+            });
 
-        commit("setSkillCards", response);
+            commit("setSkillCards", response);
+        },
+        async loadAbout({ dispatch, commit }) {
+            const response = await dispatch("apiRequest", {
+                url: "about"
+            })
+
+            commit("setAboutFeatures", response);
+        }
     }
-}
 }

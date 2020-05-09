@@ -37,7 +37,6 @@
         <sui-item-content>
           <sui-item-description :style="{color: this.$cookie.get('__at-es') === 'true' && '#fff'}">
             <p
-              
               :style="{color: this.$cookie.get('__at-es') === 'true' ? true : false}"
               v-html="skills.about"
             ></p>
@@ -64,7 +63,6 @@ export default {
   },
   created() {
     this.getSkills();
-
   },
   methods: {
     async getSkills() {
@@ -72,26 +70,31 @@ export default {
 
       const response = await this.$store.dispatch("loadSkills");
 
-      var prompt = this.getDataRedirect(this.$store.getters.skills.data[0]);
-      if (prompt === 0) {
-        if (this.$router.path !== "/404") {
+      var skills = !!this.$store.getters.skills.data.data
+        ? this.$store.getters.skills.data.data
+        : "";
+        
+      if(this.getDataRedirect(skills)) {
+
+      Object.keys(skills).map(key => {
+        if (skills[key]["name"] === this.$route.params.id) {
+          this.skills = skills[key];
+        }
+      });  
+      } else {
+        if (this.$route.path !== "/404") {
           this.$router.push("/404");
         }
       }
 
       this.loading = false;
-
-      this.skills = !!this.$store.getters.skills.data[0][this.$route.params.id]
-        ? this.$store.getters.skills.data[0][this.$route.params.id]
-        : "";
     },
     getDataRedirect(array) {
       var quantity = 0;
+
       Object.keys(array).map(key => {
-        switch (key) {
-          case this.$route.params.id:
-            ++quantity;
-            break;
+        if (array[key]['name'] == this.$route.params.id) {
+          ++quantity;
         }
       });
       return quantity;
@@ -109,5 +112,4 @@ export default {
     center center;
   background-size: contain;
 }
-
 </style>

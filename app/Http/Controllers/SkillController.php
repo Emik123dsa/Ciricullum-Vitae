@@ -47,7 +47,7 @@ class SkillController extends Controller
      * @param  \App\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function show($id)
     {
         $skill = Skill::findOrFail($id);
 

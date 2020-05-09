@@ -1,6 +1,10 @@
 <template >
   <div>
-    <h4 is="sui-header" dividing v-bind:class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false}">
+    <h4
+      is="sui-header"
+      dividing
+      v-bind:class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false}"
+    >
       <sui-icon name="jenkins" />
       <sui-header-content>
         Back-End
@@ -11,64 +15,76 @@
       <sui-card
         v-for="(card ,i) in backCards"
         :key="i"
-        class="card-animation-wrapper link"
+        class="link"
         :style="{ animationDelay: 0.1 * i + 's' }"
         @click.native="switchToSkill(card.link)"
       >
-        <sui-card-content :style="{color: '#000'}">
-          <sui-icon :name="`${card.icon}`" :color="`${card.color}`"></sui-icon>
-          {{card.name}}
+        <sui-card-content >
+          <div class="right floated">
+            <sui-icon :name="`${card.icon}`" :color="`${card.color}`"></sui-icon>
+          </div>
+          <sui-card-header>{{ card.name }}</sui-card-header>
+          <sui-card-meta>Find out about {{ card.name }}</sui-card-meta>
+          <sui-card-description></sui-card-description>
         </sui-card-content>
-        <sui-image :style="{background: '#fff' }" :src="`${card.img}`" />
-        <sui-card-content extra>
-          <sui-button content="Read" label-position="left" :color="`${card.color}`">
-            <a is="sui-label" slot="label" basic pointing="right" :color="`${card.color}`">
-              <sui-icon name="book"></sui-icon>
-            </a>
-          </sui-button>
-        </sui-card-content>
+        <sui-button attached="bottom">
+          <sui-icon name="book" :color="`${card.color}`"></sui-icon>Read more
+        </sui-button>
       </sui-card>
     </sui-card-group>
     <div v-else>
-       <lazy-card-loading />
+      <lazy-card-loading />
     </div>
-    <h4 is="sui-header" dividing v-bind:class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false}">
+    <h4
+      is="sui-header"
+      dividing
+      v-bind:class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false}"
+    >
       <sui-icon name="jenkins" />
       <sui-header-content>
         Front-End
         <sui-header-subheader>Front-End skills</sui-header-subheader>
       </sui-header-content>
     </h4>
-    <sui-card-group class="link" :items-per-row="3" v-if="!loading">
+   <sui-card-group :items-per-row="3" class="link" v-if="!loading">
       <sui-card
-        v-for="(card_front ,i) in frontCards"
+        v-for="(card ,i) in frontCards"
         :key="i"
-        class="card-animation-wrapper link"
-        :style="{animationDelay: 0.1 * i + 's'}"
-        @click.native="switchToSkill(card_front.link)"
+        class="link"
+        @click.native="switchToSkill(card.link)"
       >
-        <sui-card-content :style="{color: '#000'}">
-          <sui-icon :name="`${card_front.icon}`" :color="`${card_front.color}`"></sui-icon>
-          {{card_front.name}}
+        <sui-card-content >
+          <div class="right floated">
+            <sui-icon :name="`${card.icon}`" :color="`${card.color}`"></sui-icon>
+          </div>
+          <sui-card-header>{{ card.name }}</sui-card-header>
+          <sui-card-meta>Find out about {{ card.name }}</sui-card-meta>
+          <sui-card-description></sui-card-description>
         </sui-card-content>
-        <sui-image :style="{background: '#fff' }" :src="`${card_front.img}`" />
-        <sui-card-content extra>
-          <sui-button content="Read" label-position="left" :color="`${card_front.color}`">
-            <a is="sui-label" slot="label" basic pointing="right" :color="`${card_front.color}`">
-              <sui-icon name="book"></sui-icon>
-            </a>
-          </sui-button>
-        </sui-card-content>
+        <sui-button attached="bottom">
+          <sui-icon name="book" :color="`${card.color}`"></sui-icon>Read more
+        </sui-button>
       </sui-card>
     </sui-card-group>
-    <div v-else> 
-       <lazy-card-loading />
+    <div v-else>
+      <lazy-card-loading />
     </div>
+    <h4
+      is="sui-header"
+      dividing
+      v-bind:class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false}"
+    >
+      <sui-icon name="jenkins" />
+      <sui-header-content>
+        Default
+        <sui-header-subheader>Default skills</sui-header-subheader>
+      </sui-header-content>
+    </h4>
   </div>
 </template>
 
 <script>
-import LazyCardLoading from './global/LazyCardLoading.vue';
+import LazyCardLoading from "./global/LazyCardLoading.vue";
 
 export default {
   components: {
@@ -83,17 +99,17 @@ export default {
   metaInfo: {
     title: "Skills"
   },
-  created() { 
+  created() {
     this.getSkillCards();
   },
   computed: {
     frontCards() {
-      return this.skill_cards.filter(function (item) {
+      return this.skill_cards.filter(function(item) {
         return item.parent === "card_front";
       });
     },
     backCards() {
-      return this.skill_cards.filter(function (item) {
+      return this.skill_cards.filter(function(item) {
         return item.parent === "card_back";
       });
     }
@@ -103,10 +119,10 @@ export default {
       this.$router.push(item);
     },
     async getSkillCards() {
-      this.loading = true; 
+      this.loading = true;
       await this.$store.dispatch("loadSkillCards");
 
-      this.loading = false; 
+      this.loading = false;
 
       this.skill_cards = !!this.$store.getters.skillCards.data.data
         ? this.$store.getters.skillCards.data.data
@@ -131,6 +147,17 @@ export default {
   background: url("https://cdn.worldvectorlogo.com/logos/webpack.svg") no-repeat
     center center;
   background-size: contain;
+}
+
+.vendor {
+  &__image {
+    padding: 10px;
+    margin: 10px;
+    background-size: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 
 @keyframes card {

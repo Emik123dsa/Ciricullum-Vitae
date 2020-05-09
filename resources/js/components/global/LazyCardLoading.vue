@@ -1,60 +1,48 @@
 <template>
-  <sui-card-group :items-per-row="3" class="link">
-    <div class="ui card">
-      <div class="image">
-        <div class="ui placeholder">
-          <div class="square image"></div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="ui placeholder">
-          <div class="header">
-            <div class="very short line"></div>
-            <div class="medium line"></div>
+  <div class="ui three column grid stackable">
+    <div class="column">
+      <div class="ui raised segment" :class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false }">
+        <div class="ui placeholder" :class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false }">
+          <div class="image header">
+            <div class="line"></div>
+            <div class="line"></div>
           </div>
           <div class="paragraph">
+            <div class="medium line"></div>
             <div class="short line"></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="ui card">
-      <div class="image">
-        <div class="ui placeholder">
-          <div class="square image"></div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="ui placeholder">
-          <div class="header">
-            <div class="very short line"></div>
-            <div class="medium line"></div>
+    <div class="column">
+      <div class="ui raised segment" :class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false }">
+        <div class="ui placeholder" :class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false }">
+          <div class="image header">
+            <div class="line"></div>
+            <div class="line"></div>
           </div>
           <div class="paragraph">
+            <div class="medium line"></div>
             <div class="short line"></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="ui card">
-      <div class="image">
-        <div class="ui placeholder">
-          <div class="square image"></div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="ui placeholder">
-          <div class="header">
-            <div class="very short line"></div>
-            <div class="medium line"></div>
+    <div class="column">
+      <div class="ui raised segment" :class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false }">
+        <div class="ui placeholder" :class="{inverted: this.$cookie.get('__at-es') === 'true' ? true : false }">
+          <div class="image header">
+            <div class="line"></div>
+            <div class="line"></div>
           </div>
           <div class="paragraph">
+            <div class="medium line"></div>
             <div class="short line"></div>
           </div>
         </div>
       </div>
     </div>
-  </sui-card-group>
+  </div>
 </template>
 
 <script>

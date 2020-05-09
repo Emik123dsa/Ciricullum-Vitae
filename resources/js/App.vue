@@ -1,5 +1,5 @@
 <template>
-  <div class="pusher">
+  <div id="app" class="pusher">
     <vue-particles 
     class="bg-pusher bg-pusher__particles" 
     color="#2185d0"

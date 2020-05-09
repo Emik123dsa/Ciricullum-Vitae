@@ -1996,6 +1996,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _LazyLoading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LazyLoading */ "./resources/js/components/LazyLoading.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -2084,67 +2093,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    LazyLoading: _LazyLoading__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
-      front: [{
-        name: "Vue.js",
-        img: "vuejs",
-        description: "I'm actively studying Vuex (actions, mutations, store, getters), Nuxt.js as Server Side Rendering, Vue-Cli, Vue, VueAxios, VueRouters and a lot of plugins for deploying",
-        color: "green"
-      }, {
-        name: "Gulp.js",
-        img: "gulp",
-        description: "I'm usually using Gulp for individual front-end templates, it's useful, when you want to synergize BrowserSync, SASS-compiler and etc.",
-        color: "red"
-      }, {
-        name: "CSS3",
-        img: "css3 alternate",
-        description: "Obviously, it's being the most important skill for Front for Front-End development",
-        color: "blue"
-      }, {
-        name: "SASS/LESS/SCSS",
-        img: "sass",
-        description: "For me the most important is being always to use preprocessors for my code, it will increase code reading and get rid of the standard manipulations, for instance, with prefixes",
-        color: "pink"
-      }, {
-        name: "HTML5",
-        img: "html5",
-        description: "I'm acquainted with HTML5, I have been starting my Web Development way from it",
-        color: "red"
-      }, {
-        name: "JavaScript",
-        img: "js",
-        description: "I prefer to programming on native JavaScript for finding any solutions",
-        color: "yellow"
-      }],
-      back: [{
-        name: "PHP",
-        img: "php",
-        description: "I'm actively engaging in the PHP, also have an experience with Model-View-Controller modulation, PDO Connection, and more oriented on the Objective programming, interacted with standard patterns as 'Singleton', 'Many to Many'",
-        color: "blue"
-      }, {
-        name: "Laravel",
-        img: "laravel",
-        description: "Laravel is being sufficient wonderful framework for rapid projects building, essentially, working with php artisan is increasing your velocity potential. Like you can just create any migrations, model, view, collection, seed and so on",
-        color: "red"
-      }, {
-        name: "MySql, PostgreSql",
-        img: "database",
-        description: "I'm acquainted with MySql stadard functions, migrations",
-        color: "green"
-      }, {
-        name: "Docker",
-        img: "docker",
-        description: "I also prefer to deploy my projects via Docker compilitation, cause it's making total process of installation indeed quickly and high productive, without any struggles",
-        color: "blue"
-      }, {
-        name: "Node.js",
-        img: "node",
-        description: "I'm actively studying a Node.js, Express, MongoDb as Back End projects building",
-        color: "olive"
-      }]
+      loading: true,
+      about: ""
     };
+  },
+  created: function created() {
+    this.loadAbout();
+  },
+  computed: {
+    back: function back() {
+      return this.about.filter(function (item) {
+        return item.parent === "back";
+      });
+    },
+    front: function front() {
+      return this.about.filter(function (item) {
+        return item.parent === "front";
+      });
+    },
+    def: function def() {
+      return this.about.filter(function (item) {
+        return item.parent === "default";
+      });
+    }
+  },
+  methods: {
+    loadAbout: function loadAbout() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var features;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.loading = true;
+                _context.next = 3;
+                return _this.$store.dispatch("loadAbout");
+
+              case 3:
+                features = _this.$store.getters.aboutFeatures;
+                _this.about = !!features.data.data ? features.data.data : "";
+                _this.loading = false;
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
   },
   metaInfo: {
     title: "About Me"
@@ -2451,7 +2467,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
  //import { mapGetters, mapActions } from "vuex";
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2472,7 +2487,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var response, prompt;
+        var response, skills;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2483,18 +2498,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
-                prompt = _this.getDataRedirect(_this.$store.getters.skills.data[0]);
+                skills = !!_this.$store.getters.skills.data.data ? _this.$store.getters.skills.data.data : "";
 
-                if (prompt === 0) {
-                  if (_this.$router.path !== "/404") {
+                if (_this.getDataRedirect(skills)) {
+                  Object.keys(skills).map(function (key) {
+                    if (skills[key]["name"] === _this.$route.params.id) {
+                      _this.skills = skills[key];
+                    }
+                  });
+                } else {
+                  if (_this.$route.path !== "/404") {
                     _this.$router.push("/404");
                   }
                 }
 
                 _this.loading = false;
-                _this.skills = !!_this.$store.getters.skills.data[0][_this.$route.params.id] ? _this.$store.getters.skills.data[0][_this.$route.params.id] : "";
 
-              case 8:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -2507,10 +2527,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       var quantity = 0;
       Object.keys(array).map(function (key) {
-        switch (key) {
-          case _this2.$route.params.id:
-            ++quantity;
-            break;
+        if (array[key]['name'] == _this2.$route.params.id) {
+          ++quantity;
         }
       });
       return quantity;
@@ -2541,6 +2559,22 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2825,18 +2859,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -7675,7 +7697,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card-animation-wrapper[data-v-6fb50dc0] {\n  -webkit-animation: card-data-v-6fb50dc0 ease 0.5s both;\n          animation: card-data-v-6fb50dc0 ease 0.5s both;\n}\n.webpack[data-v-6fb50dc0] {\n  background: url(\"https://cdn.worldvectorlogo.com/logos/webpack.svg\") no-repeat center center;\n  background-size: contain;\n}\n@-webkit-keyframes card-data-v-6fb50dc0 {\nfrom {\n    transform: translate3d(0, -30px, 0);\n    opacity: 0;\n}\nto {\n    transform: translate3d(0, 0, 0);\n    opacity: 1;\n}\n}\n@keyframes card-data-v-6fb50dc0 {\nfrom {\n    transform: translate3d(0, -30px, 0);\n    opacity: 0;\n}\nto {\n    transform: translate3d(0, 0, 0);\n    opacity: 1;\n}\n}", ""]);
+exports.push([module.i, ".card-animation-wrapper[data-v-6fb50dc0] {\n  -webkit-animation: card-data-v-6fb50dc0 ease 0.5s both;\n          animation: card-data-v-6fb50dc0 ease 0.5s both;\n}\n.webpack[data-v-6fb50dc0] {\n  background: url(\"https://cdn.worldvectorlogo.com/logos/webpack.svg\") no-repeat center center;\n  background-size: contain;\n}\n.vendor__image[data-v-6fb50dc0] {\n  padding: 10px;\n  margin: 10px;\n  background-size: contain;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n@-webkit-keyframes card-data-v-6fb50dc0 {\nfrom {\n    transform: translate3d(0, -30px, 0);\n    opacity: 0;\n}\nto {\n    transform: translate3d(0, 0, 0);\n    opacity: 1;\n}\n}\n@keyframes card-data-v-6fb50dc0 {\nfrom {\n    transform: translate3d(0, -30px, 0);\n    opacity: 0;\n}\nto {\n    transform: translate3d(0, 0, 0);\n    opacity: 1;\n}\n}", ""]);
 
 // exports
 
@@ -43369,99 +43391,76 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "sui-item-group",
-    { staticClass: "card-animation-wrapper", attrs: { divided: "" } },
-    [
-      _c(
-        "sui-item",
-        [
-          (this.$cookie.get("__at-es") === "false"
-          ? true
-          : false)
-            ? _c("sui-item-image", {
-                staticClass: "photo_feature",
-                attrs: { size: "small", src: "" }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "sui-item-content",
-            [
-              _c(
-                "sui-item-header",
-                {
-                  style: {
-                    color: this.$cookie.get("__at-es") === "true" && "#fff"
-                  }
-                },
-                [_vm._v("Emil Shari")]
-              ),
-              _vm._v(" "),
-              _c("sui-item-meta", [
-                _c(
-                  "span",
-                  {
-                    staticClass: "price",
-                    style: {
-                      color: this.$cookie.get("__at-es") === "true" && "#fff"
-                    }
-                  },
-                  [_vm._v("Web & Developer")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("sui-item-description", [
-                _c(
-                  "p",
-                  {
-                    style: {
-                      color: this.$cookie.get("__at-es") === "true" && "#fff"
-                    }
-                  },
-                  [
-                    _vm._v("\n          Hello! My name is Emil.\n          "),
-                    _c("br"),
-                    _vm._v("I'm being a Full Stack Web Developer.\n          "),
-                    _c("br"),
-                    _vm._v(
-                      "I'm experienced with essential strides of the commercial/self projects building and serving.\n          "
-                    ),
-                    _c("br"),
-                    _vm._v(
-                      "Currently, I'm trying to enhance myself in the Front End framework, as Vue.js/Nuxt.js, but simultaneously, actively programming in the Back End, as PHP and his frameworks as well. (Essentially, Laravel).\n        "
-                    )
-                  ]
-                )
-              ])
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "sui-item",
+  return !_vm.loading
+    ? _c(
+        "sui-item-group",
+        { staticClass: "card-animation-wrapper", attrs: { divided: "" } },
         [
           _c(
-            "sui-header",
-            {
-              tag: "h3",
-              class: {
-                inverted: this.$cookie.get("__at-es") === "true" ? true : false
-              }
-            },
+            "sui-item",
             [
-              _c("sui-icon", { attrs: { name: "linux" } }),
+              (this.$cookie.get("__at-es") === "false"
+              ? true
+              : false)
+                ? _c("sui-item-image", {
+                    staticClass: "photo_feature",
+                    attrs: { size: "small", src: "" }
+                  })
+                : _vm._e(),
               _vm._v(" "),
               _c(
-                "sui-header-content",
+                "sui-item-content",
                 [
-                  _vm._v("\n        Programming stack:\n        "),
-                  _c("sui-header-subheader", [
-                    _vm._v(
-                      "Let me count my professional programming skills quickly:"
+                  _c(
+                    "sui-item-header",
+                    {
+                      style: {
+                        color: this.$cookie.get("__at-es") === "true" && "#fff"
+                      }
+                    },
+                    [_vm._v("Emil Shari")]
+                  ),
+                  _vm._v(" "),
+                  _c("sui-item-meta", [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "price",
+                        style: {
+                          color:
+                            this.$cookie.get("__at-es") === "true" && "#fff"
+                        }
+                      },
+                      [_vm._v("Web & Developer")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("sui-item-description", [
+                    _c(
+                      "p",
+                      {
+                        style: {
+                          color:
+                            this.$cookie.get("__at-es") === "true" && "#fff"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n          Hello! My name is Emil.\n          "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "I'm being a Full Stack Web Developer.\n          "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "I'm experienced with essential strides of the commercial/self projects building and serving.\n          "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "Currently, I'm trying to enhance myself in the Front End framework, as Vue.js/Nuxt.js, but simultaneously, actively programming in the Back End, as PHP and his frameworks as well. (Essentially, Laravel).\n        "
+                        )
+                      ]
                     )
                   ])
                 ],
@@ -43469,172 +43468,200 @@ var render = function() {
               )
             ],
             1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "sui-item",
-        [
+          ),
+          _vm._v(" "),
           _c(
-            "sui-list",
-            {
-              class: {
-                inverted: this.$cookie.get("__at-es") === "true" ? true : false
-              }
-            },
+            "sui-item",
             [
               _c(
-                "sui-item",
+                "sui-header",
+                {
+                  tag: "h3",
+                  class: {
+                    inverted:
+                      this.$cookie.get("__at-es") === "true" ? true : false
+                  }
+                },
                 [
-                  _c("sui-icon", { attrs: { name: "folder", color: "blue" } }),
+                  _c("sui-icon", { attrs: { name: "linux" } }),
                   _vm._v(" "),
                   _c(
-                    "sui-item-content",
+                    "sui-header-content",
                     [
-                      _c("sui-item-header", [_vm._v("Front-End")]),
-                      _vm._v(" "),
-                      _c(
-                        "sui-list",
-                        _vm._l(_vm.front, function(item, i) {
-                          return _c(
-                            "sui-item",
-                            { key: i },
-                            [
-                              _c("sui-icon", {
-                                attrs: {
-                                  size: "large",
-                                  color: "" + item.color,
-                                  name: "" + item.img
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "sui-item-content",
-                                [
-                                  _c("sui-item-header", [
-                                    _vm._v(_vm._s(item.name))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("sui-item-description", [
-                                    _vm._v(_vm._s(item.description))
-                                  ])
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        }),
-                        1
-                      )
+                      _vm._v("\n        Programming stack:\n        "),
+                      _c("sui-header-subheader", [
+                        _vm._v(
+                          "Let me count my professional programming skills quickly:"
+                        )
+                      ])
                     ],
                     1
                   )
                 ],
                 1
-              ),
-              _vm._v(" "),
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "sui-item",
+            [
               _c(
-                "sui-item",
+                "sui-list",
+                {
+                  class: {
+                    inverted:
+                      this.$cookie.get("__at-es") === "true" ? true : false
+                  }
+                },
                 [
-                  _c("sui-icon", { attrs: { name: "folder", color: "red" } }),
-                  _vm._v(" "),
                   _c(
-                    "sui-item-content",
+                    "sui-item",
                     [
-                      _c("sui-item-header", [_vm._v("Back-End")]),
+                      _c("sui-icon", {
+                        attrs: { name: "folder", color: "blue" }
+                      }),
                       _vm._v(" "),
-                      _c(
-                        "sui-list",
-                        _vm._l(_vm.back, function(item, i) {
-                          return _c(
-                            "sui-item",
-                            { key: i },
-                            [
-                              _c("sui-icon", {
-                                attrs: {
-                                  size: "large",
-                                  color: "" + item.color,
-                                  name: "" + item.img
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "sui-item-content",
-                                [
-                                  _c("sui-item-header", [
-                                    _vm._v(_vm._s(item.name))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("sui-item-description", [
-                                    _vm._v(_vm._s(item.description))
-                                  ])
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        }),
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "sui-item",
-                [
-                  _c("sui-icon", {
-                    attrs: { size: "large", name: "linux", color: "purple" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "sui-item-content",
-                    [
                       _c(
                         "sui-item-content",
                         [
-                          _c("sui-item-header", [_vm._v("Kali Linux")]),
+                          _c("sui-item-header", [_vm._v("Front-End")]),
                           _vm._v(" "),
-                          _c("sui-item-description", [
-                            _vm._v(
-                              "I work a plenty with Kali Linux for finding any vulnerabilities, like Sql Injections and so on"
-                            )
-                          ])
+                          _c(
+                            "sui-list",
+                            _vm._l(_vm.front, function(item, i) {
+                              return _c(
+                                "sui-item",
+                                { key: i },
+                                [
+                                  _c("sui-icon", {
+                                    class: "" + item.color,
+                                    attrs: {
+                                      size: "large",
+                                      name: "" + item.img
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "sui-item-content",
+                                    [
+                                      _c("sui-item-header", [
+                                        _vm._v(_vm._s(item.name))
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("sui-item-description", [
+                                        _vm._v(_vm._s(item.description))
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            }),
+                            1
+                          )
                         ],
                         1
                       )
                     ],
                     1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "sui-item",
-                [
-                  _c("sui-icon", { attrs: { size: "large", name: "github" } }),
+                  ),
                   _vm._v(" "),
                   _c(
-                    "sui-item-content",
+                    "sui-item",
+                    [
+                      _c("sui-icon", {
+                        attrs: { name: "folder", color: "red" }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "sui-item-content",
+                        [
+                          _c("sui-item-header", [_vm._v("Back-End")]),
+                          _vm._v(" "),
+                          _c(
+                            "sui-list",
+                            _vm._l(_vm.back, function(item, i) {
+                              return _c(
+                                "sui-item",
+                                { key: i },
+                                [
+                                  _c("sui-icon", {
+                                    class: "" + item.color,
+                                    attrs: {
+                                      size: "large",
+                                      name: "" + item.img
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "sui-item-content",
+                                    [
+                                      _c("sui-item-header", [
+                                        _vm._v(_vm._s(item.name))
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("sui-item-description", [
+                                        _vm._v(_vm._s(item.description))
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            }),
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "sui-item",
                     [
                       _c(
                         "sui-item-content",
                         [
-                          _c("sui-item-header", [_vm._v("Github")]),
-                          _vm._v(" "),
-                          _c("sui-item-description", [
-                            _vm._v(
-                              "I'm actively using github for my projects deploying"
-                            )
-                          ])
+                          _c(
+                            "sui-list",
+                            _vm._l(_vm.def, function(item, i) {
+                              return _c(
+                                "sui-item",
+                                { key: i },
+                                [
+                                  _c("sui-icon", {
+                                    class: "" + item.color,
+                                    attrs: {
+                                      size: "large",
+                                      name: "" + item.img
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "sui-item-content",
+                                    [
+                                      _c("sui-item-header", [
+                                        _vm._v(_vm._s(item.name))
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("sui-item-description", [
+                                        _vm._v(_vm._s(item.description))
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            }),
+                            1
+                          )
                         ],
                         1
                       )
@@ -43650,9 +43677,7 @@ var render = function() {
         ],
         1
       )
-    ],
-    1
-  )
+    : _c("div", [_c("lazy-loading")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44278,7 +44303,7 @@ var render = function() {
                 "sui-card",
                 {
                   key: i,
-                  staticClass: "card-animation-wrapper link",
+                  staticClass: "link",
                   style: { animationDelay: 0.1 * i + "s" },
                   nativeOn: {
                     click: function($event) {
@@ -44289,53 +44314,40 @@ var render = function() {
                 [
                   _c(
                     "sui-card-content",
-                    { style: { color: "#000" } },
                     [
-                      _c("sui-icon", {
-                        attrs: { name: "" + card.icon, color: "" + card.color }
-                      }),
-                      _vm._v("\n        " + _vm._s(card.name) + "\n      ")
+                      _c(
+                        "div",
+                        { staticClass: "right floated" },
+                        [
+                          _c("sui-icon", {
+                            attrs: {
+                              name: "" + card.icon,
+                              color: "" + card.color
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("sui-card-header", [_vm._v(_vm._s(card.name))]),
+                      _vm._v(" "),
+                      _c("sui-card-meta", [
+                        _vm._v("Find out about " + _vm._s(card.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("sui-card-description")
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c("sui-image", {
-                    style: { background: "#fff" },
-                    attrs: { src: "" + card.img }
-                  }),
-                  _vm._v(" "),
                   _c(
-                    "sui-card-content",
-                    { attrs: { extra: "" } },
+                    "sui-button",
+                    { attrs: { attached: "bottom" } },
                     [
-                      _c(
-                        "sui-button",
-                        {
-                          attrs: {
-                            content: "Read",
-                            "label-position": "left",
-                            color: "" + card.color
-                          }
-                        },
-                        [
-                          _c(
-                            "sui-label",
-                            {
-                              tag: "a",
-                              attrs: {
-                                slot: "label",
-                                basic: "",
-                                pointing: "right",
-                                color: "" + card.color
-                              },
-                              slot: "label"
-                            },
-                            [_c("sui-icon", { attrs: { name: "book" } })],
-                            1
-                          )
-                        ],
-                        1
-                      )
+                      _c("sui-icon", {
+                        attrs: { name: "book", color: "" + card.color }
+                      }),
+                      _vm._v("Read more\n      ")
                     ],
                     1
                   )
@@ -44375,74 +44387,55 @@ var render = function() {
         ? _c(
             "sui-card-group",
             { staticClass: "link", attrs: { "items-per-row": 3 } },
-            _vm._l(_vm.frontCards, function(card_front, i) {
+            _vm._l(_vm.frontCards, function(card, i) {
               return _c(
                 "sui-card",
                 {
                   key: i,
-                  staticClass: "card-animation-wrapper link",
-                  style: { animationDelay: 0.1 * i + "s" },
+                  staticClass: "link",
                   nativeOn: {
                     click: function($event) {
-                      return _vm.switchToSkill(card_front.link)
+                      return _vm.switchToSkill(card.link)
                     }
                   }
                 },
                 [
                   _c(
                     "sui-card-content",
-                    { style: { color: "#000" } },
                     [
-                      _c("sui-icon", {
-                        attrs: {
-                          name: "" + card_front.icon,
-                          color: "" + card_front.color
-                        }
-                      }),
-                      _vm._v(
-                        "\n        " + _vm._s(card_front.name) + "\n      "
-                      )
+                      _c(
+                        "div",
+                        { staticClass: "right floated" },
+                        [
+                          _c("sui-icon", {
+                            attrs: {
+                              name: "" + card.icon,
+                              color: "" + card.color
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("sui-card-header", [_vm._v(_vm._s(card.name))]),
+                      _vm._v(" "),
+                      _c("sui-card-meta", [
+                        _vm._v("Find out about " + _vm._s(card.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("sui-card-description")
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c("sui-image", {
-                    style: { background: "#fff" },
-                    attrs: { src: "" + card_front.img }
-                  }),
-                  _vm._v(" "),
                   _c(
-                    "sui-card-content",
-                    { attrs: { extra: "" } },
+                    "sui-button",
+                    { attrs: { attached: "bottom" } },
                     [
-                      _c(
-                        "sui-button",
-                        {
-                          attrs: {
-                            content: "Read",
-                            "label-position": "left",
-                            color: "" + card_front.color
-                          }
-                        },
-                        [
-                          _c(
-                            "sui-label",
-                            {
-                              tag: "a",
-                              attrs: {
-                                slot: "label",
-                                basic: "",
-                                pointing: "right",
-                                color: "" + card_front.color
-                              },
-                              slot: "label"
-                            },
-                            [_c("sui-icon", { attrs: { name: "book" } })],
-                            1
-                          )
-                        ],
-                        1
-                      )
+                      _c("sui-icon", {
+                        attrs: { name: "book", color: "" + card.color }
+                      }),
+                      _vm._v("Read more\n      ")
                     ],
                     1
                   )
@@ -44452,7 +44445,31 @@ var render = function() {
             }),
             1
           )
-        : _c("div", [_c("lazy-card-loading")], 1)
+        : _c("div", [_c("lazy-card-loading")], 1),
+      _vm._v(" "),
+      _c(
+        "sui-header",
+        {
+          tag: "h4",
+          class: {
+            inverted: this.$cookie.get("__at-es") === "true" ? true : false
+          },
+          attrs: { dividing: "" }
+        },
+        [
+          _c("sui-icon", { attrs: { name: "jenkins" } }),
+          _vm._v(" "),
+          _c(
+            "sui-header-content",
+            [
+              _vm._v("\n      Default\n      "),
+              _c("sui-header-subheader", [_vm._v("Default skills")])
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -44638,79 +44655,142 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "sui-card-group",
-    { staticClass: "link", attrs: { "items-per-row": 3 } },
-    [
-      _c("div", { staticClass: "ui card" }, [
-        _c("div", { staticClass: "image" }, [
-          _c("div", { staticClass: "ui placeholder" }, [
-            _c("div", { staticClass: "square image" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "ui placeholder" }, [
-            _c("div", { staticClass: "header" }, [
-              _c("div", { staticClass: "very short line" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "medium line" })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "paragraph" }, [
-              _c("div", { staticClass: "short line" })
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ui card" }, [
-        _c("div", { staticClass: "image" }, [
-          _c("div", { staticClass: "ui placeholder" }, [
-            _c("div", { staticClass: "square image" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "ui placeholder" }, [
-            _c("div", { staticClass: "header" }, [
-              _c("div", { staticClass: "very short line" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "medium line" })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "paragraph" }, [
-              _c("div", { staticClass: "short line" })
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ui card" }, [
-        _c("div", { staticClass: "image" }, [
-          _c("div", { staticClass: "ui placeholder" }, [
-            _c("div", { staticClass: "square image" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "ui placeholder" }, [
-            _c("div", { staticClass: "header" }, [
-              _c("div", { staticClass: "very short line" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "medium line" })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "paragraph" }, [
-              _c("div", { staticClass: "short line" })
-            ])
-          ])
-        ])
-      ])
-    ]
-  )
+  return _c("div", { staticClass: "ui three column grid stackable" }, [
+    _c("div", { staticClass: "column" }, [
+      _c(
+        "div",
+        {
+          staticClass: "ui raised segment",
+          class: {
+            inverted: this.$cookie.get("__at-es") === "true" ? true : false
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "ui placeholder",
+              class: {
+                inverted: this.$cookie.get("__at-es") === "true" ? true : false
+              }
+            },
+            [_vm._m(0), _vm._v(" "), _vm._m(1)]
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "column" }, [
+      _c(
+        "div",
+        {
+          staticClass: "ui raised segment",
+          class: {
+            inverted: this.$cookie.get("__at-es") === "true" ? true : false
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "ui placeholder",
+              class: {
+                inverted: this.$cookie.get("__at-es") === "true" ? true : false
+              }
+            },
+            [_vm._m(2), _vm._v(" "), _vm._m(3)]
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "column" }, [
+      _c(
+        "div",
+        {
+          staticClass: "ui raised segment",
+          class: {
+            inverted: this.$cookie.get("__at-es") === "true" ? true : false
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "ui placeholder",
+              class: {
+                inverted: this.$cookie.get("__at-es") === "true" ? true : false
+              }
+            },
+            [_vm._m(4), _vm._v(" "), _vm._m(5)]
+          )
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "image header" }, [
+      _c("div", { staticClass: "line" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "paragraph" }, [
+      _c("div", { staticClass: "medium line" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "short line" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "image header" }, [
+      _c("div", { staticClass: "line" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "paragraph" }, [
+      _c("div", { staticClass: "medium line" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "short line" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "image header" }, [
+      _c("div", { staticClass: "line" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "paragraph" }, [
+      _c("div", { staticClass: "medium line" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "short line" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -62120,6 +62200,92 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/vuex-router-sync/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/vuex-router-sync/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+exports.sync = function (store, router, options) {
+  var moduleName = (options || {}).moduleName || 'route'
+
+  store.registerModule(moduleName, {
+    namespaced: true,
+    state: cloneRoute(router.currentRoute),
+    mutations: {
+      'ROUTE_CHANGED': function ROUTE_CHANGED (state, transition) {
+        store.state[moduleName] = cloneRoute(transition.to, transition.from)
+      }
+    }
+  })
+
+  var isTimeTraveling = false
+  var currentPath
+
+  // sync router on store change
+  var storeUnwatch = store.watch(
+    function (state) { return state[moduleName]; },
+    function (route) {
+      var fullPath = route.fullPath;
+      if (fullPath === currentPath) {
+        return
+      }
+      if (currentPath != null) {
+        isTimeTraveling = true
+        router.push(route)
+      }
+      currentPath = fullPath
+    },
+    { sync: true }
+  )
+
+  // sync store on router navigation
+  var afterEachUnHook = router.afterEach(function (to, from) {
+    if (isTimeTraveling) {
+      isTimeTraveling = false
+      return
+    }
+    currentPath = to.fullPath
+    store.commit(moduleName + '/ROUTE_CHANGED', { to: to, from: from })
+  })
+
+  return function unsync () {
+    // On unsync, remove router hook
+    if (afterEachUnHook != null) {
+      afterEachUnHook()
+    }
+
+    // On unsync, remove store watch
+    if (storeUnwatch != null) {
+      storeUnwatch()
+    }
+
+    // On unsync, unregister Module with store
+    store.unregisterModule(moduleName)
+  }
+}
+
+function cloneRoute (to, from) {
+  var clone = {
+    name: to.name,
+    path: to.path,
+    hash: to.hash,
+    query: to.query,
+    params: to.params,
+    fullPath: to.fullPath,
+    meta: to.meta
+  }
+  if (from) {
+    clone.from = cloneRoute(from)
+  }
+  return Object.freeze(clone)
+}
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vuex/dist/vuex.esm.js":
 /*!********************************************!*\
   !*** ./node_modules/vuex/dist/vuex.esm.js ***!
@@ -63287,15 +63453,14 @@ module.exports = function(module) {
 /*!******************************!*\
   !*** ./resources/js/App.vue ***!
   \******************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue_vue_type_template_id_f348271a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=f348271a&scoped=true& */ "./resources/js/App.vue?vue&type=template&id=f348271a&scoped=true&");
 /* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/App.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _App_vue_vue_type_style_index_0_id_f348271a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&id=f348271a&lang=scss&scoped=true& */ "./resources/js/App.vue?vue&type=style&index=0&id=f348271a&lang=scss&scoped=true&");
+/* empty/unused harmony star reexport *//* harmony import */ var _App_vue_vue_type_style_index_0_id_f348271a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&id=f348271a&lang=scss&scoped=true& */ "./resources/js/App.vue?vue&type=style&index=0&id=f348271a&lang=scss&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -63327,7 +63492,7 @@ component.options.__file = "resources/js/App.vue"
 /*!*******************************************************!*\
   !*** ./resources/js/App.vue?vue&type=script&lang=js& ***!
   \*******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63375,48 +63540,41 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! exports provided: default */
+/*! exports provided: createApp */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createApp", function() { return createApp; });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
-/* harmony import */ var vue_meta__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-meta */ "./node_modules/vue-meta/dist/vue-meta.esm.js");
-/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
-/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./routes/routes */ "./resources/js/routes/routes.js");
-/* harmony import */ var vue_cookie__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-cookie */ "./node_modules/vue-cookie/src/vue-cookie.js");
-/* harmony import */ var vue_cookie__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_cookie__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var vue_breadcrumbs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-breadcrumbs */ "./node_modules/vue-breadcrumbs/dist/vue-breadcrumbs.common.js");
-/* harmony import */ var vue_breadcrumbs__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_breadcrumbs__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _global_semantic_ui_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./global/semantic-ui-vue */ "./resources/js/global/semantic-ui-vue.js");
-/* harmony import */ var _global_vue_particles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./global/vue-particles */ "./resources/js/global/vue-particles.js");
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var nprogress_nprogress_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! nprogress/nprogress.css */ "./node_modules/nprogress/nprogress.css");
-/* harmony import */ var nprogress_nprogress_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(nprogress_nprogress_css__WEBPACK_IMPORTED_MODULE_13__);
-//require('./bootstrap');
-
-/**
- * We have to determine Vue with initial 
- */
-
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
+/* harmony import */ var vue_meta__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-meta */ "./node_modules/vue-meta/dist/vue-meta.esm.js");
+/* harmony import */ var vue_cookie__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-cookie */ "./node_modules/vue-cookie/src/vue-cookie.js");
+/* harmony import */ var vue_cookie__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_cookie__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_breadcrumbs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-breadcrumbs */ "./node_modules/vue-breadcrumbs/dist/vue-breadcrumbs.common.js");
+/* harmony import */ var vue_breadcrumbs__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_breadcrumbs__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _global_semantic_ui_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./global/semantic-ui-vue */ "./resources/js/global/semantic-ui-vue.js");
+/* harmony import */ var _global_vue_particles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./global/vue-particles */ "./resources/js/global/vue-particles.js");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var nprogress_nprogress_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! nprogress/nprogress.css */ "./node_modules/nprogress/nprogress.css");
+/* harmony import */ var nprogress_nprogress_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(nprogress_nprogress_css__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
+/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./routes/routes */ "./resources/js/routes/routes.js");
+/* harmony import */ var vuex_router_sync__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuex-router-sync */ "./node_modules/vuex-router-sync/index.js");
+/* harmony import */ var vuex_router_sync__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(vuex_router_sync__WEBPACK_IMPORTED_MODULE_13__);
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /**
  * Vue
  */
 
-/**
- * VueRouter
- */
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /**
  * VueAxios
  */
@@ -63424,7 +63582,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
  //axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_axios__WEBPACK_IMPORTED_MODULE_2___default.a, axios__WEBPACK_IMPORTED_MODULE_3___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_axios__WEBPACK_IMPORTED_MODULE_1___default.a, axios__WEBPACK_IMPORTED_MODULE_2___default.a);
 /**
  * App implemented component
  */
@@ -63435,29 +63593,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_axios__WEBPACK_IMPORTED_MODUL
  */
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_meta__WEBPACK_IMPORTED_MODULE_5__["default"]);
-/**
- * VueX
- */
-
-
-/**
- * Routes for VueRouter
- */
-
-
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_meta__WEBPACK_IMPORTED_MODULE_4__["default"]);
 /**
  * VueCookie
  */
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookie__WEBPACK_IMPORTED_MODULE_8___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_cookie__WEBPACK_IMPORTED_MODULE_5___default.a);
 /**
  * VueBreadcrumb
  */
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_breadcrumbs__WEBPACK_IMPORTED_MODULE_9___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_breadcrumbs__WEBPACK_IMPORTED_MODULE_6___default.a);
 /**
  * Global plugins
  */
@@ -63466,27 +63614,37 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_breadcrumbs__WEBPACK_IMPORTED
 
 
 
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  mode: 'history',
-  routes: _routes_routes__WEBPACK_IMPORTED_MODULE_7__["default"]
-});
-router.beforeResolve(function (to, from, next) {
-  if (to.name) {
-    nprogress__WEBPACK_IMPORTED_MODULE_12___default.a.start();
-  }
 
-  next();
-});
-router.afterEach(function (to, from) {
-  return nprogress__WEBPACK_IMPORTED_MODULE_12___default.a.done();
-});
-/* harmony default export */ __webpack_exports__["default"] = (new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  store: _store_index__WEBPACK_IMPORTED_MODULE_6__["default"],
-  router: router,
-  render: function render(h) {
-    return h(_App_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
-  }
-}));
+
+
+function createApp() {
+  var router = Object(_routes_routes__WEBPACK_IMPORTED_MODULE_12__["createRouter"])();
+  var store = Object(_store_index__WEBPACK_IMPORTED_MODULE_11__["createStore"])();
+  Object(vuex_router_sync__WEBPACK_IMPORTED_MODULE_13__["sync"])(store, router);
+  router.beforeResolve(function (to, from, next) {
+    if (to.name) {
+      nprogress__WEBPACK_IMPORTED_MODULE_9___default.a.start();
+    }
+
+    next();
+  });
+  router.afterEach(function (to, from) {
+    return nprogress__WEBPACK_IMPORTED_MODULE_9___default.a.done();
+  });
+  var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+    store: store,
+    router: router,
+    render: function render(h) {
+      return h(_App_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    }
+  });
+  return {
+    app: app,
+    router: router,
+    store: store
+  };
+}
+;
 
 /***/ }),
 
@@ -64686,10 +64844,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app */ "./resources/js/app.js");
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-_app__WEBPACK_IMPORTED_MODULE_0__["default"].$mount('#app');
+var _createApp = Object(_app__WEBPACK_IMPORTED_MODULE_0__["createApp"])(),
+    app = _createApp.app,
+    router = _createApp.router;
+
+router.onReady(function () {
+  app.$mount('#app');
+});
 
 /***/ }),
 
@@ -64737,20 +64900,27 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_particles__WEBPACK_IMPORTED_M
 /*!***************************************!*\
   !*** ./resources/js/routes/routes.js ***!
   \***************************************/
-/*! exports provided: default */
+/*! exports provided: createRouter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_HomeComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/HomeComponent */ "./resources/js/components/HomeComponent.vue");
-/* harmony import */ var _components_ErrorComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../components/ErrorComponent */ "./resources/js/components/ErrorComponent.vue");
-/* harmony import */ var _components_PersonalComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/PersonalComponent */ "./resources/js/components/PersonalComponent.vue");
-/* harmony import */ var _components_TestimonialComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/TestimonialComponent */ "./resources/js/components/TestimonialComponent.vue");
-/* harmony import */ var _components_SocialsComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/SocialsComponent */ "./resources/js/components/SocialsComponent.vue");
-/* harmony import */ var _components_SkillsComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/SkillsComponent */ "./resources/js/components/SkillsComponent.vue");
-/* harmony import */ var _components_ProjectsComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../components/ProjectsComponent */ "./resources/js/components/ProjectsComponent.vue");
-/* harmony import */ var _components_AboutComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../components/AboutComponent */ "./resources/js/components/AboutComponent.vue");
-/* harmony import */ var _components_SkillPreciselyComponent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../components/SkillPreciselyComponent */ "./resources/js/components/SkillPreciselyComponent.vue");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createRouter", function() { return createRouter; });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_HomeComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/HomeComponent */ "./resources/js/components/HomeComponent.vue");
+/* harmony import */ var _components_ErrorComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/ErrorComponent */ "./resources/js/components/ErrorComponent.vue");
+/* harmony import */ var _components_PersonalComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/PersonalComponent */ "./resources/js/components/PersonalComponent.vue");
+/* harmony import */ var _components_TestimonialComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../components/TestimonialComponent */ "./resources/js/components/TestimonialComponent.vue");
+/* harmony import */ var _components_SocialsComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../components/SocialsComponent */ "./resources/js/components/SocialsComponent.vue");
+/* harmony import */ var _components_SkillsComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../components/SkillsComponent */ "./resources/js/components/SkillsComponent.vue");
+/* harmony import */ var _components_ProjectsComponent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../components/ProjectsComponent */ "./resources/js/components/ProjectsComponent.vue");
+/* harmony import */ var _components_AboutComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../components/AboutComponent */ "./resources/js/components/AboutComponent.vue");
+/* harmony import */ var _components_SkillPreciselyComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../components/SkillPreciselyComponent */ "./resources/js/components/SkillPreciselyComponent.vue");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 
 
@@ -64763,35 +64933,35 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   name: "Home",
   path: "/",
-  component: _components_HomeComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+  component: _components_HomeComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
   meta: {
     breadcrumb: 'Home Page'
   }
 }, {
   name: "About",
   path: "/about",
-  component: _components_AboutComponent__WEBPACK_IMPORTED_MODULE_7__["default"],
+  component: _components_AboutComponent__WEBPACK_IMPORTED_MODULE_9__["default"],
   meta: {
     breadcrumb: 'About me'
   }
 }, {
   name: "Personal",
   path: "/personal",
-  component: _components_PersonalComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
+  component: _components_PersonalComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
   meta: {
     breadcrumb: 'Personal Information'
   }
 }, {
   name: "Testimonial",
   path: "/testimonial",
-  component: _components_TestimonialComponent__WEBPACK_IMPORTED_MODULE_3__["default"],
+  component: _components_TestimonialComponent__WEBPACK_IMPORTED_MODULE_5__["default"],
   meta: {
     breadcrumb: 'My Testimonial'
   }
 }, {
   name: "Skills",
   path: "/skills",
-  component: _components_SkillsComponent__WEBPACK_IMPORTED_MODULE_5__["default"],
+  component: _components_SkillsComponent__WEBPACK_IMPORTED_MODULE_7__["default"],
   meta: {
     breadcrumb: 'My Skills'
   },
@@ -64799,14 +64969,14 @@ var routes = [{
 }, {
   //name: "Current Skill",
   path: "/skills/:id",
-  component: _components_SkillPreciselyComponent__WEBPACK_IMPORTED_MODULE_8__["default"],
+  component: _components_SkillPreciselyComponent__WEBPACK_IMPORTED_MODULE_10__["default"],
   meta: {
     breadcrumb: "My Skills"
   },
   children: [{
     name: "Current Skill",
     path: "/",
-    component: _components_SkillPreciselyComponent__WEBPACK_IMPORTED_MODULE_8__["default"],
+    component: _components_SkillPreciselyComponent__WEBPACK_IMPORTED_MODULE_10__["default"],
     meta: {
       breadcrumb: "String"
     }
@@ -64814,21 +64984,21 @@ var routes = [{
 }, {
   name: "Socials",
   path: "/socials",
-  component: _components_SocialsComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
+  component: _components_SocialsComponent__WEBPACK_IMPORTED_MODULE_6__["default"],
   meta: {
     breadcrumb: 'Social Medias'
   }
 }, {
   name: "Projects",
   path: "/projects",
-  component: _components_ProjectsComponent__WEBPACK_IMPORTED_MODULE_6__["default"],
+  component: _components_ProjectsComponent__WEBPACK_IMPORTED_MODULE_8__["default"],
   meta: {
     breadcrumb: 'My Projects'
   }
 }, {
   name: "Error",
   path: "/404",
-  component: _components_ErrorComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
+  component: _components_ErrorComponent__WEBPACK_IMPORTED_MODULE_3__["default"],
   meta: {
     breadcrumb: 'Error Page'
   }
@@ -64836,7 +65006,12 @@ var routes = [{
   path: "*",
   redirect: "/404"
 }];
-/* harmony default export */ __webpack_exports__["default"] = (routes);
+function createRouter() {
+  return new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+    mode: 'history',
+    routes: routes
+  });
+}
 
 /***/ }),
 
@@ -64844,11 +65019,12 @@ var routes = [{
 /*!*************************************!*\
   !*** ./resources/js/store/index.js ***!
   \*************************************/
-/*! exports provided: default */
+/*! exports provided: createStore */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return createStore; });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
@@ -64857,11 +65033,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  modules: {
-    features: _modules_features__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }
-}));
+function createStore() {
+  return new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+    modules: {
+      features: _modules_features__WEBPACK_IMPORTED_MODULE_2__["default"]
+    }
+  });
+}
+;
 
 /***/ }),
 
@@ -64890,9 +65069,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
+    apiBaseUrl: "/api/",
     allSkills: "",
-    apiBaseUrl: "http://www.mocky.io/v2/",
-    skillCards: ""
+    skillCards: "",
+    aboutFeatures: ""
   },
   getters: {
     skills: function skills(s) {
@@ -64900,6 +65080,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     skillCards: function skillCards(s) {
       return s.skillCards;
+    },
+    aboutFeatures: function aboutFeatures(s) {
+      return s.aboutFeatures;
     }
   },
   mutations: {
@@ -64914,6 +65097,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     clearSkillCards: function clearSkillCards(state) {
       state.skillCards = [];
+    },
+    setAboutFeatures: function setAboutFeatures(state, value) {
+      state.aboutFeatures = value;
+    },
+    clearAboutFeatures: function clearAboutFeatures(state) {
+      state.aboutFeatures = [];
     }
   },
   actions: {
@@ -64963,10 +65152,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 dispatch = _ref3.dispatch, commit = _ref3.commit;
                 _context2.next = 3;
                 return dispatch("apiRequest", {
-                  url: "5eadd6982f00004b00198895",
-                  params: {
-                    "mocky-delay": "300ms"
-                  }
+                  url: "skills"
                 });
 
               case 3:
@@ -64991,8 +65177,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 dispatch = _ref4.dispatch, commit = _ref4.commit;
                 _context3.next = 3;
                 return dispatch("apiRequest", {
-                  baseURL: "/api",
-                  url: "/skill-cards"
+                  url: "skill-cards"
                 });
 
               case 3:
@@ -65005,6 +65190,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee3);
+      }))();
+    },
+    loadAbout: function loadAbout(_ref5) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var dispatch, commit, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                dispatch = _ref5.dispatch, commit = _ref5.commit;
+                _context4.next = 3;
+                return dispatch("apiRequest", {
+                  url: "about"
+                });
+
+              case 3:
+                response = _context4.sent;
+                commit("setAboutFeatures", response);
+
+              case 5:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
       }))();
     }
   }
