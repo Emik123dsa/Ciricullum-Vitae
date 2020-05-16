@@ -70,6 +70,16 @@ export default {
 .slide-fade-leave-to {
   opacity: 0;
 }
+.slide-fade-enter-active {
+  transition: all 1s ease;
+}
+.slide-fade-leave-active {
+  transition: all 1s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  opacity: 0;
+}
 
 .bg-pusher {
   position: fixed;

@@ -1,3 +1,10 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
+import VueMeta from 'vue-meta';
+Vue.use(VueMeta);
+
 import HomeComponent from './../components/HomeComponent';
 import ErrorComponent from './../components/ErrorComponent';
 import PersonalComponent from "./../components/PersonalComponent";
@@ -96,4 +103,11 @@ const routes = [
     }
 ];
 
-export default routes;
+export function createRouter() {
+    return new VueRouter(
+        {
+            mode: 'history',
+            routes: routes
+        }
+    );
+}
