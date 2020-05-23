@@ -45,3 +45,18 @@ INSERT INTO `abouts`(`name`, `img`, `description`,`color`,`parent`) VALUES ('Lar
 INSERT INTO `abouts`(`name`, `img`, `description`,`color`,`parent`) VALUES ('MySql, PostgreSql','database','I''m acquainted with MySql stadard functions, migrations','green','back');
 INSERT INTO `abouts`(`name`, `img`, `description`,`color`,`parent`) VALUES ('Docker','docker','I also prefer to deploy my projects via Docker compilitation, cause it''s making total process of installation indeed quickly and high productive, without any struggles','blue','back');
 INSERT INTO `abouts`(`name`, `img`, `description`,`color`,`parent`) VALUES ('Node.js','node','I''m actively studying a Node.js, Express, MongoDb as Back End projects building','olive','back');
+
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('About me','/about','features',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Personal','/personal','features',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Contact me','/feedback','features',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Socials','/socials','features',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Testimonial','/testimonial','features',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Home','/','items',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Projects','/projects','items',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Socials','/socials','items',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Skills','/skills','items',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Testimonial','/testimonial','items',NULL);
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('GitHub','/github','socials','github');
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('LinkedIn','/linkedin','socials','linkedin');
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Xing','/xing','socials','xing');
+INSERT INTO `menu_features`(`name`,`path`,`parent`,`img`) VALUES ('Stack Overflow','/stackoverflow','socials','stack overflow');
